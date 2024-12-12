@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions } from '@nestjs/microservices/interfaces';
 import { Transport } from '@nestjs/microservices';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -15,7 +16,8 @@ async function bootstrap() {
       },
     },
   });
+  await app.startAllMicroservices();
 
-  await app.listen(3001);
+  await app.listen(3000);
 }
 bootstrap();

@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
-
+import { LogsModule } from './logs/logs.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -14,6 +13,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: [],
       synchronize: true,
     }),
+    LogsModule
   ],
   controllers: [],
   providers: [],
